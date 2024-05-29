@@ -4,9 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/Content/2D/Misc/mouse.png</File>
     <File>/Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/Content/2D/totoro.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

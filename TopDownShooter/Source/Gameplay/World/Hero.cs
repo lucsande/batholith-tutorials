@@ -16,9 +16,10 @@ namespace TopDownShooter
 {
     public class Hero : Basic2d
     {
+        public float speed;
         public Hero(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
-
+            speed = 2.0f;
         }
 
         public override void Update()
@@ -43,13 +44,16 @@ namespace TopDownShooter
                 pos = new Vector2(pos.X, pos.Y + 1);
             }
 
+            Vector2 mouseFocus = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
+            rot = Globals.RotateTowards(pos, mouseFocus);
+
 
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(Vector2 OFFSET)
         {
-            base.Draw();
+            base.Draw(OFFSET);
         }
     }
 }

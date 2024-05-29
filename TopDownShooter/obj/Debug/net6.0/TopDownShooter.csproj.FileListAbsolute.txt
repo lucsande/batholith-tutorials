@@ -24,3 +24,5 @@
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/obj/Debug/net6.0/TopDownShooter.genruntimeconfig.cache
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/obj/Debug/net6.0/ref/TopDownShooter.dll
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/bin/Debug/net6.0/Content/2D/totoro.xnb
+/Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/bin/Debug/net6.0/Content/2D/Misc/mouse.xnb
+/Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/obj/Debug/net6.0/TopDownShooter.sourcelink.json

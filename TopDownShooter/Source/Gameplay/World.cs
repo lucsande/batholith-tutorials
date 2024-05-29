@@ -20,9 +20,9 @@ namespace TopDownShooter
             hero.Update();
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Vector2 OFFSET)
         {
-            hero.Draw();
+            hero.Draw(OFFSET);
         }
     }
 

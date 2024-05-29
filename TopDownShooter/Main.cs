@@ -10,12 +10,13 @@ public class Main : Game
     // private SpriteBatch _spriteBatch;
 
     World world;
+    Basic2d cursor;
 
     public Main()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
-        IsMouseVisible = true;
+        IsMouseVisible = false;
     }
 
     protected override void Initialize()
@@ -29,9 +30,13 @@ public class Main : Game
     {
         Globals.content = this.Content;
         Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        cursor = new Basic2d("2D/Misc/mouse", new Vector2(0, 0), new Vector2(18, 18));
         Globals.keyboard = new McKeyboard();
+        Globals.mouse = new McMouseControl();
 
         world = new World();
+
 
         // TODO: use this.Content to load your game content here
     }
@@ -42,29 +47,30 @@ public class Main : Game
             Exit();
 
         Globals.keyboard.Update();
+        Globals.mouse.Update();
 
         // TODO: Add your update logic here
         world.Update();
 
         Globals.keyboard.UpdateOld();
+        Globals.mouse.UpdateOld();
 
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Lerp(Color.LightGoldenrodYellow, Color.LightGreen, 0.20f));
 
 
         Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
         // TODO: Add your drawing code here
 
+        world.Draw(Vector2.Zero);
 
-
-        world.Draw();
-
-
+        Vector2 cursorOffset = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
+        cursor.Draw(cursorOffset, new Vector2(0, 0));
 
         Globals.spriteBatch.End();
 
