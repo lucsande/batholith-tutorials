@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TopDownShooter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+050029a2fd53f250ded4fa97b4cb729f13e6fe2a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc72ca629536cdff440f032f98d523d1b9bfd378")]
 [assembly: System.Reflection.AssemblyProductAttribute("TopDownShooter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TopDownShooter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

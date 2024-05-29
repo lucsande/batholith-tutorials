@@ -24,24 +24,34 @@ namespace TopDownShooter
 
         public override void Update()
         {
+            // fazemos + ou - 8 pra melhorar feedback visual, pra personagem nunca conseguir ficar 100% escondido da tela
+            float maxLeft = 0 - dims.X / 2 + 8;
+            float maxRight = 800 + dims.X / 2 - 8;
+            float maxTop = 0 - dims.Y / 2 + 8;
+            float maxBottom = 480 + dims.Y / 2 - 8;
+
             if (Globals.keyboard.GetPress("A"))
             {
-                pos = new Vector2(pos.X - 1, pos.Y);
+                float newX = pos.X < maxLeft ? maxRight : pos.X - speed;
+                pos = new Vector2(newX, pos.Y);
             }
 
             if (Globals.keyboard.GetPress("D"))
             {
-                pos = new Vector2(pos.X + 1, pos.Y);
+                float newX = pos.X > maxRight ? maxLeft : pos.X + speed;
+                pos = new Vector2(newX, pos.Y);
             }
 
             if (Globals.keyboard.GetPress("W"))
             {
-                pos = new Vector2(pos.X, pos.Y - 1);
+                float newY = pos.Y < maxTop ? maxBottom : pos.Y - speed;
+                pos = new Vector2(pos.X, newY);
             }
 
             if (Globals.keyboard.GetPress("S"))
             {
-                pos = new Vector2(pos.X, pos.Y + 1);
+                float newY = pos.Y > maxBottom ? maxTop : pos.Y + speed;
+                pos = new Vector2(pos.X, newY);
             }
 
             Vector2 mouseFocus = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);

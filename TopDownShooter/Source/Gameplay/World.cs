@@ -11,7 +11,6 @@ namespace TopDownShooter
 
         public World()
         {
-            // TODO: talvez seja 2D\\Hero
             hero = new Hero("2D/totoro", new Vector2(300, 300), new Vector2(48, 48));
         }
 
