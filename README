@@ -1,0 +1,38 @@
+criado usando como ref o https://github.com/MonoGame/MonoGame/discussions/8131
+
+comandos principais (substituir MyGame pelo nome do projeto)
+
+outras opções ao invés de mgdesktopgl seriam os outros shortnames de projetos do monogame (https://monogame.net/articles/platforms.html):
+mgandroid mgpipeline mgdesktopgl mglib mgios mgshared mgwindowsdx mguwpxaml
+
+```
+dotnet new sln -n TopDownShooter
+dotnet new mgdesktopgl -n TopDownShooter
+dotnet sln add TopDownShooter
+dotnet restore
+```
+
+gerenciar content:
+`dotnet mgcb-editor ./Content/Content.mgcb`
+
+First, you will need to be somewhat familiar with using the dotnet command line interface (cli) to do things such as running your project (dotnet run) or adding third party libraries via NuGet packages (dotnet add package). Understanding the basic concepts of using the dotnet cli will go a long way in helping you when using Visual Studio Code. You can find more information at https://learn.microsoft.com/en-us/dotnet/core/tools/
+
+### sillicon mac
+
+https://community.monogame.net/t/tutorial-for-setting-up-monogame-on-m1-m2-apple-silicon/19669
+
+Download the installers for the arm and x64 version of the .NET sdk
+
+The mgcb content editor doesn’t work without using the x64 version
+
+at the end of your .zshrc or bash or whatever your using set this
+
+export PATH="/usr/local/share/dotnet/x64:$PATH"
+
+You’ll also run into a free image error to solve that you need to install homebrew and then run
+
+brew install freeimage
+
+and then link it
+
+sudo ln -s /opt/homebrew/Cellar/freeimage/3.18.0/lib/libfreeimage.dylib /usr/local/lib/libfreeimage
