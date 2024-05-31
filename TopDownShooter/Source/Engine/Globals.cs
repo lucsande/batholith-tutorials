@@ -3,6 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+
+public delegate void PassObject(object i);
+public delegate object PassObjectAndReturn(object i);
+
+
 namespace TopDownShooter
 {
     public class Globals
@@ -11,8 +16,12 @@ namespace TopDownShooter
         public static ContentManager content;
         public static SpriteBatch spriteBatch;
 
+        public static GameTime gameTime;
+
         public static McKeyboard keyboard;
         public static McMouseControl mouse;
+
+
 
 
         public static float GetDistance(Vector2 pos, Vector2 target)

@@ -6,7 +6,7 @@ namespace TopDownShooter;
 
 public class Main : Game
 {
-    private GraphicsDeviceManager _graphics;
+    private GraphicsDeviceManager graphics;
     // private SpriteBatch _spriteBatch;
 
     World world;
@@ -14,13 +14,19 @@ public class Main : Game
 
     public Main()
     {
-        _graphics = new GraphicsDeviceManager(this);
+        graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = false;
     }
 
     protected override void Initialize()
     {
+        Globals.screenWidth = 800; // 1800;
+        Globals.screenHeight = 480;// 900;
+
+        graphics.PreferredBackBufferWidth = Globals.screenWidth;
+        graphics.PreferredBackBufferHeight = Globals.screenHeight;
+        // graphics.ApplyChanges();
         // TODO: Add your initialization logic here
 
         base.Initialize();
@@ -45,6 +51,8 @@ public class Main : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+
+        Globals.gameTime = gameTime; // ms since last frame
 
         Globals.keyboard.Update();
         Globals.mouse.Update();

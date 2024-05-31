@@ -26,3 +26,4 @@
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/bin/Debug/net6.0/Content/2D/totoro.xnb
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/bin/Debug/net6.0/Content/2D/Misc/mouse.xnb
 /Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/obj/Debug/net6.0/TopDownShooter.sourcelink.json
+/Users/lucassandeville/code/gamedev/csharp/batholith-tutorials/TopDownShooter/bin/Debug/net6.0/Content/2D/Projectiles/fireball.xnb

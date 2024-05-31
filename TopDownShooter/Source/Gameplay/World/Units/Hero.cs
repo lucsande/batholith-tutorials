@@ -14,9 +14,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TopDownShooter
 {
-    public class Hero : Basic2d
+    public class Hero : Unit
     {
-        public float speed;
+        new public float speed;
         public Hero(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
             speed = 2.0f;
@@ -25,10 +25,11 @@ namespace TopDownShooter
         public override void Update()
         {
             // fazemos + ou - 8 pra melhorar feedback visual, pra personagem nunca conseguir ficar 100% escondido da tela
-            float maxLeft = 0 - dims.X / 2 + 8;
-            float maxRight = 800 + dims.X / 2 - 8;
-            float maxTop = 0 - dims.Y / 2 + 8;
-            float maxBottom = 480 + dims.Y / 2 - 8;
+            float screenVisibilityOffset = 8;
+            float maxLeft = 0 - dims.X / 2 + screenVisibilityOffset;
+            float maxRight = Globals.screenWidth + dims.X / 2 - screenVisibilityOffset;
+            float maxTop = 0 - dims.Y / 2 + screenVisibilityOffset;
+            float maxBottom = Globals.screenHeight + dims.Y / 2 - screenVisibilityOffset;
 
             if (Globals.keyboard.GetPress("A"))
             {
@@ -52,6 +53,15 @@ namespace TopDownShooter
             {
                 float newY = pos.Y > maxBottom ? maxTop : pos.Y + speed;
                 pos = new Vector2(pos.X, newY);
+            }
+
+            if (Globals.mouse.LeftClick())
+            {
+                Vector2 startProjPos = new Vector2(pos.X, pos.Y);
+                Vector2 projTarget = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
+                Projectile2d proj = new Fireball(startProjPos, this, projTarget);
+
+                GameGlobals.PassProjectile(proj);
             }
 
             Vector2 mouseFocus = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
