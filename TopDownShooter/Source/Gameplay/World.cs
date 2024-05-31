@@ -43,12 +43,15 @@ namespace TopDownShooter
 
         public virtual void Draw(Vector2 OFFSET)
         {
-            hero.Draw(OFFSET);
+            // a ordem em que desenhamos objetos afeta exibição
+            // desenhados por último aparecem por cima dos anteriores
 
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(offset);
             }
+
+            hero.Draw(OFFSET);
         }
     }
 

@@ -57,8 +57,13 @@ namespace TopDownShooter
 
             if (Globals.mouse.LeftClick())
             {
-                Vector2 startProjPos = new Vector2(pos.X, pos.Y);
+                Random rand = new Random();
+                float startProjX = pos.X + rand.Next((int)dims.X / 2 * -1, (int)dims.X / 2);
+                float startProjY = pos.Y + rand.Next((int)dims.Y / 2 * -1, (int)dims.Y / 2);
+
+                Vector2 startProjPos = new Vector2(startProjX, startProjY);
                 Vector2 projTarget = new Vector2(Globals.mouse.newMousePos.X, Globals.mouse.newMousePos.Y);
+
                 Projectile2d proj = new Fireball(startProjPos, this, projTarget);
 
                 GameGlobals.PassProjectile(proj);
